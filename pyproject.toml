@@ -34,6 +34,8 @@ pymystem3 = "^0.2.0"
 ipywidgets = "^8.1.1"
 ncls = "^0.0.68"
 sentence-transformers = "^2.2.2"
+sumy = "^0.11.0"
+rapidfuzz = "^3.5.2"
 
 [tool.poetry.dev-dependencies]
 

@@ -273,6 +273,19 @@ webencodings = "*"
 css = ["tinycss2 (>=1.1.0,<1.3)"]
 
 [[package]]
+name = "breadability"
+version = "0.1.20"
+description = "Port of Readability HTML parser in Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+chardet = "*"
+docopt = ">=0.6.1,<0.7"
+lxml = ">=2.0"
+
+[[package]]
 name = "bs4"
 version = "0.0.1"
 description = "Dummy package for Beautiful Soup"
@@ -340,6 +353,14 @@ python-versions = ">=3.8"
 
 [package.dependencies]
 pycparser = "*"
+
+[[package]]
+name = "chardet"
+version = "5.2.0"
+description = "Universal encoding detector for Python 3"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "charset-normalizer"
@@ -503,6 +524,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "distlib"
 version = "0.3.7"
 description = "Distribution utilities"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "docopt"
+version = "0.6.2"
+description = "Pythonic argument parser, that will make you smile"
 category = "main"
 optional = false
 python-versions = "*"
@@ -719,9 +748,9 @@ sqlglot = "*"
 triad = ">=0.9.3"
 
 [package.extras]
-all = ["sqlglot", "jinja2", "fugue-sql-antlr[cpp] (>=0.1.6)", "pyspark (>=3.1.1)", "dask[dataframe,distributed] (>=2023.5.0)", "dask-sql", "ray[data] (>=2.4.0)", "notebook", "jupyterlab", "ipython (>=7.10.0)", "duckdb (>=0.5.0)", "pyarrow (>=6.0.1)", "pandas (>=2.0.2)", "ibis-framework (>=3.2.0,<6)", "polars"]
+all = ["sqlglot", "jinja2", "fugue-sql-antlr[cpp] (>=0.1.6)", "pyspark (>=3.1.1)", "dask[distributed,dataframe] (>=2023.5.0)", "dask-sql", "ray[data] (>=2.4.0)", "notebook", "jupyterlab", "ipython (>=7.10.0)", "duckdb (>=0.5.0)", "pyarrow (>=6.0.1)", "pandas (>=2.0.2)", "ibis-framework (>=3.2.0,<6)", "polars"]
 cpp_sql_parser = ["fugue-sql-antlr[cpp] (>=0.1.6)"]
-dask = ["dask[dataframe,distributed] (>=2023.5.0)", "pyarrow (>=7.0.0)", "pandas (>=2.0.2)"]
+dask = ["dask[distributed,dataframe] (>=2023.5.0)", "pyarrow (>=7.0.0)", "pandas (>=2.0.2)"]
 duckdb = ["duckdb (>=0.5.0)", "numpy"]
 ibis = ["ibis-framework (>=3.2.0,<6)"]
 notebook = ["notebook", "jupyterlab", "ipython (>=7.10.0)"]
@@ -1521,7 +1550,7 @@ numpy = "*"
 scipy = "*"
 
 [package.extras]
-dask = ["dask[dataframe,distributed,array] (>=2.0.0)", "pandas (>=0.24.0)"]
+dask = ["dask[array,distributed,dataframe] (>=2.0.0)", "pandas (>=0.24.0)"]
 pandas = ["pandas (>=0.24.0)"]
 scikit-learn = ["scikit-learn (!=0.22.0)"]
 
@@ -2398,6 +2427,14 @@ python-versions = ">=3.8"
 numpy = ">=1.16.6"
 
 [[package]]
+name = "pycountry"
+version = "22.3.5"
+description = "ISO country, subdivision, language, currency and script definitions and their translations"
+category = "main"
+optional = false
+python-versions = ">=3.6, <4"
+
+[[package]]
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
@@ -3157,7 +3194,7 @@ tqdm = "*"
 
 [package.extras]
 dask = ["fugue[dask] (>=0.8.1)"]
-dev = ["nbdev", "black", "mypy", "flake8", "ray", "protobuf (>=3.15.3,<4.0.0)", "matplotlib", "pmdarima", "prophet", "scikit-learn", "fugue[dask,spark,ray] (>=0.8.1)", "datasetsforecast", "supersmoother"]
+dev = ["nbdev", "black", "mypy", "flake8", "ray", "protobuf (>=3.15.3,<4.0.0)", "matplotlib", "pmdarima", "prophet", "scikit-learn", "fugue[dask,ray,spark] (>=0.8.1)", "datasetsforecast", "supersmoother"]
 plotly = ["plotly", "plotly-resampler"]
 ray = ["fugue[ray] (>=0.8.1)", "protobuf (>=3.15.3,<4.0.0)"]
 spark = ["fugue[spark] (>=0.8.1)"]
@@ -3204,6 +3241,31 @@ websockets = ">=10.4,<11"
 build = ["pandas (>=1.5.3,<2)", "pyarrow (>=12.0.0,<13.0.0)", "plotly-express (>=0.4.1,<1)", "build (>=0.7.0,<1)", "mypy (>=1.2.0,<2)", "pandas-stubs (>=2.0.0,<3)", "pytest (>=7.0.0,<8)", "pytest-asyncio (>=0.21.0,<1)", "altair (>=4.1.0,<5)", "httpx (>=0.18.2,<1)"]
 ds = ["pandas (>=1.5.3,<2)", "pyarrow (>=12.0.0,<13.0.0)", "plotly-express (>=0.4.1,<1)"]
 test = ["pandas (>=1.5.3,<2)", "pyarrow (>=12.0.0,<13.0.0)", "plotly-express (>=0.4.1,<1)", "pytest-asyncio (>=0.21.0,<1)", "pytest (>=7.0.0,<8)", "altair (>=4.1.0,<5)", "httpx (>=0.18.2,<1)"]
+
+[[package]]
+name = "sumy"
+version = "0.11.0"
+description = "Module for automatic summarization of text documents and HTML pages."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+breadability = ">=0.1.20"
+docopt = ">=0.6.1,<0.7"
+nltk = ">=3.0.2"
+pycountry = ">=18.2.23"
+requests = ">=2.7.0"
+
+[package.extras]
+arabic = ["pyarabic"]
+chinese = ["jieba"]
+greek = ["greek-stemmer-pos"]
+hebrew = ["hebrew-tokenizer"]
+japanese = ["tinysegmenter"]
+korean = ["konlpy"]
+lsa = ["numpy"]
+lexrank = ["numpy"]
 
 [[package]]
 name = "sympy"
@@ -3832,7 +3894,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.2"
-content-hash = "a1591063aaabc18524805b3dbc3a19f31cad6464c5e7bd8e8de5f6e311b6e253"
+content-hash = "7eff5826c1b023a497dbbe8a01097d5b0ac506be21bc0b1016cdc0fd8b30d20b"
 
 [metadata.files]
 adagio = []
@@ -3856,11 +3918,13 @@ attrs = []
 babel = []
 beautifulsoup4 = []
 bleach = []
+breadability = []
 bs4 = []
 build = []
 cachecontrol = []
 certifi = []
 cffi = []
+chardet = []
 charset-normalizer = []
 cleo = []
 click = []
@@ -3876,6 +3940,7 @@ debugpy = []
 decorator = []
 defusedxml = []
 distlib = []
+docopt = []
 docstring-to-markdown = []
 dulwich = []
 exceptiongroup = []
@@ -4003,6 +4068,7 @@ psutil = []
 ptyprocess = []
 pure-eval = []
 pyarrow = []
+pycountry = []
 pycparser = []
 pydantic = []
 pydantic-core = []
@@ -4060,6 +4126,7 @@ starlette = []
 statsforecast = []
 statsmodels = []
 streamsync = []
+sumy = []
 sympy = []
 tenacity = []
 tensorboardx = []
