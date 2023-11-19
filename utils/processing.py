@@ -210,7 +210,7 @@ def get_job_rank(df: pd.DataFrame) -> pd.DataFrame:
 
 	for i in tqdm(df.user_id.unique(), 'Processing users'):
 		with warnings.catch_warnings():
-			# Irnore pandas warnings.
+			# Ignore pandas warnings.
 			warnings.filterwarnings("ignore")
 			# Select user data.
 			temp = df_[df_['user_id'] == i]
