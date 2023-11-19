@@ -18,6 +18,16 @@ docker run -it agro-code-pioneers
   - docker-compose -f docker-compose.yaml up --build
   - docker-compose run --rm app
 
+Запуск без docker'а из корня директории:
+ - python3 -m venv venv
+ - source venv/bin/activate
+ - pip install reqs.txt
+ - python app.py --sample_size=252 --rule --shorts
+Результат в локальной папке graph
+
+Основные параметры Yake:
+- n - количество слов в n-gram для извлеченния ключевых слов
+- top - сколько брать ключевых слов
 
 Параметры BERT в файле main_pipe.ipynb:
 минимальное количество профессий в кластере
