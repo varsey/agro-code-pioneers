@@ -2,7 +2,7 @@ import nltk
 import pandas as pd
 from collections import Counter
 from pymystem3 import Mystem
-from .utils import extract, check_adj
+from .woker_utils import extract, check_adj
 
 nltk.download('punkt')
 nltk.download('stopwords')

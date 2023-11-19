@@ -15,10 +15,10 @@ class GraphBuilder:
         )
         self.len_cs = 1
 
-    def build(self, clickstream, first_sel, last_sel, last_sel_status):
+    def build(self, clickstream, first_sel, last_sel):
         self.graph, plotted_nodes = self.plot_main(self.graph, clickstream, first_sel, nodenames=True)
         self.graph = self.plot_transitions(plotted_nodes)
-        self.graph = self.plot_end_statuses(clickstream, last_sel, last_sel_status, plotted_nodes)
+        self.graph = self.plot_end_statuses(clickstream, last_sel, plotted_nodes)
         return self.graph
 
     def scale_line_width(self, label_count: int) -> str:
@@ -79,7 +79,7 @@ class GraphBuilder:
                     self.graph.edge(node, trans, minlen='2')
         return self.graph
 
-    def plot_end_statuses(self, clickstream: list, last_sel: list, last_sel_status: list, plotted_nodes: list) -> Digraph:
+    def plot_end_statuses(self, clickstream: list, last_sel: list, plotted_nodes: list) -> Digraph:
         # Plotting end statuses
         plotted_end_nodes = []
         for stream in clickstream:
@@ -92,19 +92,18 @@ class GraphBuilder:
                                 or
                                 (node in [plotted_node[1] for plotted_node in plotted_nodes]))
                 ):
-                    if last_sel_status[node]['Correct'] > 0:
-                        status = 'Correct'
-                        self.graph.node(
-                            str(node) + status, label='Done',
-                            style='invis', fillcolor='green',
-                            fontname='Helvetica', fontcolor='#1a237e'
-                        )
-                        self.graph.edge(
-                            node, str(node) + status,
-                            label=f'{last_sel.count(node):2.0f}',
-                            fontname='Helvetica',
-                            minlen='2'
-                        )
+                    status = 'last'
+                    self.graph.node(
+                        str(node) + status, label='Done',
+                        style='invis', fillcolor='green',
+                        fontname='Helvetica', fontcolor='#1a237e'
+                    )
+                    self.graph.edge(
+                        node, str(node) + status,
+                        label=f'{last_sel.count(node):2.0f}',
+                        fontname='Helvetica',
+                        minlen='2'
+                    )
 
                     plotted_end_nodes.append(node)
         return self.graph

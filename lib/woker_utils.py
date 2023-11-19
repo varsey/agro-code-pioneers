@@ -68,3 +68,14 @@ def check_adj(x):
                 return spec[0][0]
         else:
             return x
+
+
+def print_legend(data_sample):
+    for job in data_sample.jobs_selected.unique():
+        print(f'\n\n--------- {job} ---------')
+        [
+            print(f'user_id = {y:<10} - {x}') for x, y in zip(
+            data_sample[data_sample.jobs_selected == job].job.to_list(),
+            data_sample[data_sample.jobs_selected == job].client_id.to_list(),
+        )
+        ]

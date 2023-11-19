@@ -64,7 +64,7 @@ def parse_resume(
 
 	person = []
 
-	with open(file, 'r') as f:
+	with open(file, 'r', encoding="utf-8") as f:
 		# Read file content.
 		contents = f.read()
 		# Parse html.
@@ -95,12 +95,15 @@ def parse_resume(
 				job.append(count_months(time_span))
 				try:
 					# Set localization.
-					locale.setlocale(locale.LC_TIME, 'ru_RU')
+					locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
+					print('ru', resume_times[i].text.split())
 					for d in process_time(resume_times[i].text.split()):
 						job.append(d)
 				except ValueError:
+					pass
 					# Set localization.
-					locale.setlocale(locale.LC_TIME, 'en_US')
+					locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+					print('ru', resume_times[i].text.split())
 					for d in process_time(resume_times[i].text.split()):
 						job.append(d)
 				if name_process_func:
@@ -113,6 +116,8 @@ def parse_resume(
 			print(f"File {file.name} not parsed\n")
 			print(e)
 			pass
+	print()
+	print(person)
 	return np.array(person)
 
 
