@@ -1,0 +1,9 @@
+version: "2"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    container_name: agro-code-pioneers-container
+    volumes:
+      - .:/app
