@@ -15,11 +15,13 @@ docker run -it agro-code-pioneers
 - Сгенеренный файл лежит в папке graph в контейнере
 
 - Опционально - запуск через докер-компоуз
-docker-compose run --rm app
+  - docker-compose -f docker-compose.yaml up --build
+  - docker-compose run --rm app
 
 
 Параметры BERT в файле main_pipe.ipynb:
 минимальное количество профессий в кластере
 - min_community_size=25
+
 степень посимвольной схожести строк с профессиями
 - threshold=0.75
