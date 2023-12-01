@@ -1,35 +1,45 @@
-# agro-code-pioneers
 
+### 🚀 Что это за репо?
+Решение команды "Инновационные Пионеры°" на AgroTech-хакатоне [«AgroCode Hack»](https://rshbdigital.ru/agrocode-hack)
+
+### 💡 Как запустить в контейнере
 - Создаем контейнер
-docker build --force-rm -t agro-code-pioneers -f build/Dockerfile .
+
+    docker build --force-rm -t agro-code-pioneers -f build/Dockerfile .
 
 - Запускаем в интерактивном режиме
-docker run -it agro-code-pioneers
+
+    docker run -it agro-code-pioneers
 
 - Запускаем приложение с параметрами
   - --rule - применяет правило из настроек lib/custom_rule.py, 
   - --shorts - включает короткие цепочки
   - --sample_size=252 - сколько данных брать из датасета
-    - python app.py --sample_size=252 --rule --shorts
+
+    python app.py --sample_size=252 --rule --shorts
 
 - Сгенеренный файл лежит в папке graph в контейнере
 
 - Опционально - запуск через докер-компоуз
-  - docker-compose -f docker-compose.yaml up --build
-  - docker-compose run --rm app
 
+      docker-compose -f docker-compose.yaml up --build
+
+      docker-compose run --rm app
+
+### 🔧 Как запустить в контейнере
 Запуск без docker'а из корня директории:
- - python3 -m venv venv
- - source venv/bin/activate
- - pip install reqs.txt
- - python app.py --sample_size=252 --rule --shorts
+ - `python3 -m venv venv`
+ - `source venv/bin/activate`
+ - `pip install reqs.txt`
+ - `python app.py --sample_size=252 --rule --shorts`
 Результат в локальной папке graph
 
+### 🪛 Параметры
 Основные параметры Yake:
 - n - количество слов в n-gram для извлеченния ключевых слов
 - top - сколько брать ключевых слов
 
-Параметры BERT в файле main_pipe.ipynb:
+Параметры BERT в файле *main_pipe.ipynb:*
 минимальное количество профессий в кластере
 - min_community_size=25
 
